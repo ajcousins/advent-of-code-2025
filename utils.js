@@ -6,4 +6,10 @@ const getLines = (test) => {
     return lines;
 }
 
-module.exports = { getLines };
+const getCommaSeparatedValues = (test) => {
+    const data = fs.readFileSync(test ? 'test.txt' : 'real.txt', 'utf8');
+    const lines = data.split(',').map(line => line.trim());
+    return lines;
+}
+
+module.exports = { getLines, getCommaSeparatedValues };
