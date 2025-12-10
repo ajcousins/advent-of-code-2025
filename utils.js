@@ -12,4 +12,22 @@ const getCommaSeparatedValues = (test) => {
     return lines;
 }
 
-module.exports = { getLines, getCommaSeparatedValues };
+const getHighestVal = (str) => {
+    const chars = str.split('').map(c => Number(c));
+    let idx = 0;
+    let val = 0;
+    for (let i = 0; i < chars.length; i++) {
+        if (chars[i] > val) {
+            val = chars[i];
+            idx = i;
+        }
+    }
+
+    return { val, idx }
+}
+
+module.exports = {
+    getLines,
+    getCommaSeparatedValues,
+    getHighestVal
+};
